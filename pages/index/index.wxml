@@ -1,10 +1,20 @@
 <!--index.wxml-->
 <view class="container">
-  <view wx:if="userInfo" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  <view class="header">
+    <text class="title">当前关卡: {{level}}</text>
   </view>
-  <view class="img-content">
-    <image wx:for="{{imgs}}" wx:key="index" class="img" src="{{item}}" data-src="{{item}}" bindtap="previewImg" mode="aspectFit"></image>
-  </view>
+    <view class="content">
+        <canvas class="rope-canvas" canvas-id="rope_canvas"></canvas>
+        <view class="play">
+            <button bindtap="evt_play">{{btn}}</button>
+        </view>
+    </view>
+    <view wx:if="{{showModal}}" class="mask">
+        <view class="maskcontent">
+            <text class="tip">{{tip}}</text>
+            <view class="maskplay">
+                <button type="primary" bindtap="evt_maskplay">{{maskbtn}}</button>
+            </view>
+        </view>
+    </view>
 </view>
