@@ -32,6 +32,10 @@ Page({
     this.renderCanvas();
   },
   initParams: function () {
+    wx.setNavigationBarTitle({
+      title: '剪绳子'
+    })
+
     let self = this;
     wx.getSystemInfo({
       success: function(res) {
